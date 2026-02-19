@@ -23,7 +23,7 @@ body { font-family:'Nunito',sans-serif; min-height:100vh; overflow-x:hidden; }
 .card-rodrigo:active { transform:scale(0.97); }
 .card-rodrigo h2 { font-family:'Orbitron',monospace; font-size:1.6rem; color:white; letter-spacing:1px; }
 .home-footer { margin-top:2rem; font-size:0.75rem; color:#aaa; text-align:center; }
-.app-screen { display:none; height:100dvh; flex-direction:column; overflow:hidden; }
+.app-screen { display:none; position:fixed; inset:0; flex-direction:column; overflow:hidden; z-index:50; }
 .back-btn { position:absolute; top:1rem; left:1rem; background:rgba(255,255,255,0.25); border:none; border-radius:50%; width:38px; height:38px; font-size:1.2rem; cursor:pointer; display:flex; align-items:center; justify-content:center; color:white; z-index:10; }
 #app-nancy { background:#fff5f8; }
 .nancy-header { background:linear-gradient(135deg,#ff6b9d 0%,#ff85a1 100%); color:white; padding:1.4rem 1.2rem 1rem; flex-shrink:0; box-shadow:0 2px 20px rgba(255,100,150,0.25); position:relative; }
@@ -208,4 +208,4 @@ body { font-family:'Nunito',sans-serif; min-height:100vh; overflow-x:hidden; }
 <!-- RODRIGO APP -->
 <div id="app-rodrigo" class="app-screen">
   <div class="rodrigo-header">
-    <button class="back-btn" onclick="goHome()">←</button>
+    <button class="back-btn" onclick
