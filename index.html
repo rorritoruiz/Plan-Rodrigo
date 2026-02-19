@@ -3,769 +3,405 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Plan Rodrigo · Nutrición</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet">
+<title>Plan Nutricional · Silvina Marone</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&family=Pacifico&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --green: #3d7a4e;
-    --green-mid: #5a9e6e;
-    --green-light: #d4eadb;
-    --green-pale: #f0f8f2;
-    --amber: #c8692d;
-    --amber-light: #fdf0e6;
-    --blue: #2e6e8e;
-    --blue-light: #e6f2f8;
-    --purple: #6b4e8a;
-    --purple-light: #f0ebf8;
-    --bg: #f5f9f6;
-    --white: #ffffff;
-    --text: #1e2e24;
-    --muted: #6b7f72;
-    --border: #cde0d3;
-    --radius: 16px;
-    --shadow: 0 4px 20px rgba(61,122,78,0.1);
-  }
+/* ═══════════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════════ */
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+body { font-family:'Nunito',sans-serif; min-height:100vh; overflow-x:hidden; }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+/* ═══════════════════════════════════════════════
+   HOME SCREEN
+═══════════════════════════════════════════════ */
+#home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(160deg, #fff0f5 0%, #f0f8ff 50%, #fff0f5 100%);
+  position: relative;
+  overflow: hidden;
+}
+/* floating deco */
+#home::before {
+  content: '🌸🤖🌸🤖🌸';
+  position: absolute; top: 1rem; left: 0; right: 0;
+  text-align: center; font-size: 1.5rem;
+  opacity: 0.15; letter-spacing: 1rem;
+}
+.home-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 0.3rem;
+}
+.home-sub {
+  font-size: 0.85rem;
+  color: #999;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.home-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 340px;
+}
 
-  body {
-    font-family: 'Nunito', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    padding-bottom: 100px;
-  }
+/* NANCY CARD */
+.card-nancy {
+  background: linear-gradient(135deg, #ff85a1 0%, #ffb3c6 50%, #ffd6e0 100%);
+  border-radius: 28px;
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(255,100,150,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 3px solid rgba(255,255,255,0.6);
+  position: relative;
+  overflow: hidden;
+}
+.card-nancy::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='10' cy='10' r='3' fill='white' opacity='0.3'/%3E%3Ccircle cx='40' cy='25' r='2' fill='white' opacity='0.2'/%3E%3Ccircle cx='20' cy='45' r='4' fill='white' opacity='0.15'/%3E%3Ccircle cx='50' cy='50' r='2' fill='white' opacity='0.25'/%3E%3C/svg%3E") repeat;
+}
+.card-nancy:active { transform: scale(0.97); box-shadow: 0 4px 15px rgba(255,100,150,0.3); }
+.card-nancy .card-emoji { font-size: 3.5rem; display: block; margin-bottom: 0.5rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15)); position: relative; }
+.card-nancy h2 { font-family:'Pacifico',cursive; font-size: 2rem; color: white; text-shadow: 0 2px 8px rgba(180,0,60,0.3); position: relative; }
+.card-nancy p { font-size: 0.8rem; color: rgba(255,255,255,0.85); margin-top: 0.3rem; position: relative; }
+.card-nancy .card-tag { display:inline-block; background:rgba(255,255,255,0.35); border-radius:20px; padding:0.2rem 0.9rem; font-size:0.75rem; font-weight:700; color:white; margin-top:0.6rem; position:relative; border:1px solid rgba(255,255,255,0.5); }
 
-  /* HEADER */
-  .app-header {
-    background: linear-gradient(135deg, var(--green) 0%, #2a5e3a 100%);
-    color: white;
-    padding: 1.4rem 1.2rem 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.2);
-  }
-  .app-header h1 { font-size: 1.3rem; font-weight: 900; letter-spacing: -0.3px; }
-  .app-header p { font-size: 0.78rem; opacity: 0.75; margin-top: 0.1rem; }
+/* RODRIGO CARD */
+.card-rodrigo {
+  background: linear-gradient(135deg, #4fc3f7 0%, #81d4fa 50%, #b3e5fc 100%);
+  border-radius: 28px;
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(30,150,220,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 3px solid rgba(255,255,255,0.6);
+  position: relative;
+  overflow: hidden;
+}
+.card-rodrigo::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect x='5' y='5' width='8' height='8' rx='2' fill='white' opacity='0.15'/%3E%3Crect x='45' y='20' width='6' height='6' rx='1' fill='white' opacity='0.2'/%3E%3Crect x='20' y='50' width='10' height='10' rx='2' fill='white' opacity='0.1'/%3E%3Crect x='60' y='55' width='7' height='7' rx='1' fill='white' opacity='0.18'/%3E%3C/svg%3E") repeat;
+}
+.card-rodrigo:active { transform: scale(0.97); box-shadow: 0 4px 15px rgba(30,150,220,0.3); }
+.card-rodrigo .card-emoji { font-size: 3.5rem; display: block; margin-bottom: 0.5rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15)); position: relative; }
+.card-rodrigo h2 { font-family:'Orbitron',monospace; font-size: 1.6rem; color: white; text-shadow: 0 2px 8px rgba(0,60,120,0.3); position: relative; letter-spacing: 1px; }
+.card-rodrigo p { font-size: 0.8rem; color: rgba(255,255,255,0.85); margin-top: 0.3rem; position: relative; }
+.card-rodrigo .card-tag { display:inline-block; background:rgba(255,255,255,0.35); border-radius:20px; padding:0.2rem 0.9rem; font-size:0.75rem; font-weight:700; color:white; margin-top:0.6rem; position:relative; border:1px solid rgba(255,255,255,0.5); }
 
-  .search-bar {
-    margin-top: 0.9rem;
-    position: relative;
-  }
-  .search-bar input {
-    width: 100%;
-    padding: 0.65rem 1rem 0.65rem 2.6rem;
-    border-radius: 30px;
-    border: none;
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.9rem;
-    background: rgba(255,255,255,0.18);
-    color: white;
-    outline: none;
-  }
-  .search-bar input::placeholder { color: rgba(255,255,255,0.6); }
-  .search-bar .search-icon {
-    position: absolute;
-    left: 0.9rem;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0.7;
-    font-size: 1rem;
-  }
-  #search-results {
-    display: none;
-    background: white;
-    border-radius: var(--radius);
-    margin-top: 0.5rem;
-    box-shadow: var(--shadow);
-    max-height: 250px;
-    overflow-y: auto;
-  }
-  .search-result-item {
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.85rem;
-    cursor: pointer;
-  }
-  .search-result-item:last-child { border-bottom: none; }
-  .search-result-item strong { color: var(--green); display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
-  .search-result-item:hover { background: var(--green-pale); }
+.home-footer { margin-top:2rem; font-size:0.75rem; color:#aaa; text-align:center; }
 
-  /* NAV TABS */
-  .nav-tabs {
-    display: flex;
-    background: white;
-    border-bottom: 2px solid var(--border);
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    position: sticky;
-    top: 112px;
-    z-index: 90;
-  }
-  .nav-tabs::-webkit-scrollbar { display: none; }
-  .tab-btn {
-    flex-shrink: 0;
-    padding: 0.85rem 1.1rem;
-    border: none;
-    background: none;
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--muted);
-    cursor: pointer;
-    white-space: nowrap;
-    border-bottom: 3px solid transparent;
-    margin-bottom: -2px;
-    transition: all 0.2s;
-  }
-  .tab-btn.active { color: var(--green); border-bottom-color: var(--green); }
-  .tab-btn .tab-emoji { margin-right: 0.3rem; }
+/* ═══════════════════════════════════════════════
+   APP SCREENS (shared structure)
+═══════════════════════════════════════════════ */
+.app-screen { display:none; min-height:100vh; flex-direction:column; padding-bottom:90px; }
+.app-screen.visible { display:flex; flex-direction:column; }
 
-  /* CONTENT */
-  .tab-content { display: none; padding: 1rem; animation: fadeIn 0.25s ease; }
-  .tab-content.active { display: block; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+/* BACK BUTTON */
+.back-btn {
+  position: absolute; top: 1rem; left: 1rem;
+  background: rgba(255,255,255,0.25);
+  border: none; border-radius: 50%;
+  width: 38px; height: 38px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex; align-items:center; justify-content:center;
+  color: white;
+  z-index: 10;
+}
 
-  /* CATEGORY CARDS */
-  .cat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-  @media(min-width: 600px) { .cat-grid { grid-template-columns: repeat(3, 1fr); } }
+/* ── NANCY APP ── */
+#app-nancy { background: #fff5f8; }
+.nancy-header {
+  background: linear-gradient(135deg, #ff6b9d 0%, #ff85a1 100%);
+  color: white; padding: 1.4rem 1.2rem 1rem;
+  position: sticky; top:0; z-index:100;
+  box-shadow: 0 2px 20px rgba(255,100,150,0.25);
+  position: relative;
+}
+.nancy-header h1 { font-family:'Pacifico',cursive; font-size:1.5rem; padding-left: 2.5rem; }
+.nancy-header p { font-size:0.78rem; opacity:0.85; margin-top:0.1rem; padding-left:2.5rem; }
+.nancy-search { margin-top:0.9rem; position:relative; }
+.nancy-search input {
+  width:100%; padding:0.65rem 1rem 0.65rem 2.6rem;
+  border-radius:30px; border:none;
+  font-family:'Nunito',sans-serif; font-size:0.9rem;
+  background:rgba(255,255,255,0.22); color:white; outline:none;
+}
+.nancy-search input::placeholder { color:rgba(255,255,255,0.65); }
+.nancy-search .si { position:absolute; left:0.9rem; top:50%; transform:translateY(-50%); opacity:0.7; }
 
-  .cat-card {
-    background: white;
-    border-radius: var(--radius);
-    padding: 1rem;
-    border: 1.5px solid var(--border);
-    cursor: pointer;
-    transition: all 0.2s;
-    box-shadow: var(--shadow);
-  }
-  .cat-card:active { transform: scale(0.97); }
-  .cat-card .cat-emoji { font-size: 1.8rem; display: block; margin-bottom: 0.4rem; }
-  .cat-card h3 { font-size: 0.82rem; font-weight: 900; color: var(--green); text-transform: uppercase; letter-spacing: 0.5px; }
-  .cat-card .cat-preview { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; line-height: 1.4; }
-  .cat-card .cat-tag {
-    display: inline-block;
-    margin-top: 0.5rem;
-    background: var(--green-light);
-    color: var(--green);
-    border-radius: 20px;
-    padding: 0.15rem 0.6rem;
-    font-size: 0.7rem;
-    font-weight: 700;
-  }
-  .cat-card .cat-tag.amber { background: var(--amber-light); color: var(--amber); }
+.nancy-tabs { display:flex; background:white; border-bottom:2px solid #ffd6e0; overflow-x:auto; scrollbar-width:none; position:sticky; top:108px; z-index:90; }
+.nancy-tabs::-webkit-scrollbar { display:none; }
+.ntab { flex-shrink:0; padding:0.85rem 1.1rem; border:none; background:none; font-family:'Nunito',sans-serif; font-size:0.85rem; font-weight:700; color:#c08; cursor:pointer; white-space:nowrap; border-bottom:3px solid transparent; margin-bottom:-2px; transition:all 0.2s; opacity:0.5; }
+.ntab.active { opacity:1; border-bottom-color:#ff6b9d; color:#ff6b9d; }
 
-  /* MODAL */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-    z-index: 500;
-    align-items: flex-end;
-    justify-content: center;
-  }
-  .modal-overlay.open { display: flex; }
-  .modal {
-    background: white;
-    border-radius: 24px 24px 0 0;
-    width: 100%;
-    max-width: 600px;
-    max-height: 80vh;
-    overflow-y: auto;
-    padding: 1.5rem 1.2rem 2rem;
-    animation: slideUp 0.3s cubic-bezier(0.34,1.56,0.64,1);
-  }
-  @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-  .modal-handle { width: 40px; height: 4px; background: var(--border); border-radius: 4px; margin: 0 auto 1.2rem; }
-  .modal h2 { font-size: 1.3rem; font-weight: 900; color: var(--green); margin-bottom: 1rem; }
-  .modal .food-list { font-size: 0.88rem; color: var(--text); line-height: 1.8; }
-  .modal .food-list b { color: var(--green); }
-  .modal .food-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--green-pale);
-  }
-  .modal .food-item:last-child { border-bottom: none; }
-  .modal .food-item .bullet { color: var(--green-mid); font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
-  .modal .portion-box {
-    background: var(--green-light);
-    border-radius: 12px;
-    padding: 0.7rem 1rem;
-    margin-bottom: 1rem;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--green);
-  }
-  .modal-close {
-    display: block;
-    width: 100%;
-    margin-top: 1.2rem;
-    padding: 0.85rem;
-    background: var(--green);
-    color: white;
-    border: none;
-    border-radius: 30px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-  }
+/* ── RODRIGO APP ── */
+#app-rodrigo { background: #f0f8ff; }
+.rodrigo-header {
+  background: linear-gradient(135deg, #0288d1 0%, #4fc3f7 100%);
+  color: white; padding: 1.4rem 1.2rem 1rem;
+  position: sticky; top:0; z-index:100;
+  box-shadow: 0 2px 20px rgba(2,136,209,0.25);
+  position: relative;
+}
+.rodrigo-header h1 { font-family:'Orbitron',monospace; font-size:1.2rem; padding-left:2.5rem; letter-spacing:1px; }
+.rodrigo-header p { font-size:0.78rem; opacity:0.85; margin-top:0.1rem; padding-left:2.5rem; }
+.rodrigo-search { margin-top:0.9rem; position:relative; }
+.rodrigo-search input {
+  width:100%; padding:0.65rem 1rem 0.65rem 2.6rem;
+  border-radius:30px; border:none;
+  font-family:'Nunito',sans-serif; font-size:0.9rem;
+  background:rgba(255,255,255,0.22); color:white; outline:none;
+}
+.rodrigo-search input::placeholder { color:rgba(255,255,255,0.65); }
+.rodrigo-search .si { position:absolute; left:0.9rem; top:50%; transform:translateY(-50%); opacity:0.7; }
 
-  /* MEAL CARDS */
-  .meal-card {
-    background: white;
-    border-radius: var(--radius);
-    overflow: hidden;
-    margin-bottom: 1rem;
-    box-shadow: var(--shadow);
-    border: 1.5px solid var(--border);
-  }
-  .meal-header {
-    padding: 1rem 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    color: white;
-  }
-  .meal-header .meal-emoji { font-size: 1.6rem; }
-  .meal-header h3 { font-size: 1.1rem; font-weight: 900; }
-  .meal-header small { font-size: 0.75rem; opacity: 0.85; display: block; margin-top: 0.1rem; }
-  .meal-header.desayuno { background: linear-gradient(135deg, #d4793b, #e8a060); }
-  .meal-header.colacion { background: linear-gradient(135deg, #5a9e6e, #7bbf8a); }
-  .meal-header.almuerzo { background: linear-gradient(135deg, #3d7a4e, #5a9e6e); }
-  .meal-header.merienda { background: linear-gradient(135deg, #a06030, #c88040); }
-  .meal-header.cena { background: linear-gradient(135deg, #2e4e6a, #3e6e8a); }
+.rodrigo-tabs { display:flex; background:white; border-bottom:2px solid #b3e5fc; overflow-x:auto; scrollbar-width:none; position:sticky; top:108px; z-index:90; }
+.rodrigo-tabs::-webkit-scrollbar { display:none; }
+.rtab { flex-shrink:0; padding:0.85rem 1.1rem; border:none; background:none; font-family:'Nunito',sans-serif; font-size:0.85rem; font-weight:700; color:#0288d1; cursor:pointer; white-space:nowrap; border-bottom:3px solid transparent; margin-bottom:-2px; transition:all 0.2s; opacity:0.5; }
+.rtab.active { opacity:1; border-bottom-color:#0288d1; color:#0288d1; }
 
-  .meal-body { padding: 1rem 1.2rem; }
-  .meal-row {
-    display: flex;
-    gap: 0.6rem;
-    align-items: flex-start;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--green-pale);
-    font-size: 0.86rem;
-    line-height: 1.5;
-  }
-  .meal-row:last-child { border-bottom: none; }
-  .meal-row .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-mid); flex-shrink: 0; margin-top: 5px; }
-  .meal-row .dot.amber { background: var(--amber); }
-  .meal-row strong { color: var(--green); }
+/* ── SHARED TAB CONTENT ── */
+.tab-content { display:none; padding:1rem; animation:fadeIn 0.25s ease; }
+.tab-content.active { display:block; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
 
-  /* TIPS */
-  .tip-card {
-    background: white;
-    border-radius: var(--radius);
-    padding: 1rem;
-    margin-bottom: 0.75rem;
-    display: flex;
-    gap: 0.8rem;
-    align-items: center;
-    border: 1.5px solid var(--border);
-    box-shadow: var(--shadow);
-  }
-  .tip-icon { font-size: 1.6rem; flex-shrink: 0; }
-  .tip-text { font-size: 0.86rem; line-height: 1.5; color: var(--text); }
+/* CATEGORY GRID */
+.cat-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; }
+@media(min-width:600px){ .cat-grid{ grid-template-columns:repeat(3,1fr); } }
 
-  /* BOTTOM STICKY NAV */
-  .bottom-nav {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: white;
-    border-top: 1.5px solid var(--border);
-    display: flex;
-    z-index: 200;
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-  .bottom-btn {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0.7rem 0.5rem;
-    border: none;
-    background: none;
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: var(--muted);
-    cursor: pointer;
-    gap: 0.2rem;
-    transition: color 0.2s;
-  }
-  .bottom-btn .btn-emoji { font-size: 1.3rem; }
-  .bottom-btn.active { color: var(--green); }
+.cat-card {
+  background:white; border-radius:16px; padding:1rem;
+  cursor:pointer; transition:all 0.2s;
+  box-shadow:0 4px 15px rgba(0,0,0,0.06);
+  border:1.5px solid #eee;
+}
+.cat-card:active { transform:scale(0.97); }
+.cat-card .ce { font-size:1.8rem; display:block; margin-bottom:0.4rem; }
+.cat-card h3 { font-size:0.82rem; font-weight:900; text-transform:uppercase; letter-spacing:0.5px; }
+.cat-card .cp { font-size:0.75rem; color:#999; margin-top:0.25rem; line-height:1.4; }
+.cat-card .ctag { display:inline-block; border-radius:20px; padding:0.15rem 0.6rem; font-size:0.7rem; font-weight:700; margin-top:0.5rem; }
 
-  /* SECTION HEADER */
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    margin-bottom: 1rem;
-    margin-top: 0.5rem;
-  }
-  .section-header h2 { font-size: 1rem; font-weight: 900; color: var(--green); }
-  .section-header .line { flex: 1; height: 1.5px; background: var(--border); }
+.nancy-card h3 { color:#ff6b9d; }
+.nancy-card .ctag { background:#ffe4ee; color:#ff6b9d; }
+.nancy-card .ctag.amber { background:#fff0e0; color:#e07000; }
+.rodrigo-card h3 { color:#0288d1; }
+.rodrigo-card .ctag { background:#e0f4ff; color:#0288d1; }
+.rodrigo-card .ctag.amber { background:#fff0e0; color:#e07000; }
+
+/* MEAL CARDS */
+.meal-card { background:white; border-radius:16px; overflow:hidden; margin-bottom:1rem; box-shadow:0 4px 15px rgba(0,0,0,0.06); border:1.5px solid #eee; }
+.meal-hd { padding:1rem 1.2rem; display:flex; align-items:center; gap:0.7rem; color:white; }
+.meal-hd .me { font-size:1.6rem; }
+.meal-hd h3 { font-size:1.1rem; font-weight:900; }
+.meal-hd small { font-size:0.75rem; opacity:0.85; display:block; margin-top:0.1rem; }
+
+/* nancy meal colors */
+.n-desayuno { background:linear-gradient(135deg,#ff6b9d,#ff99bb); }
+.n-colacion { background:linear-gradient(135deg,#ff85a1,#ffaabb); }
+.n-almuerzo { background:linear-gradient(135deg,#e05080,#ff6b9d); }
+.n-merienda { background:linear-gradient(135deg,#c04070,#e06090); }
+.n-cena     { background:linear-gradient(135deg,#8b2252,#c0406e); }
+
+/* rodrigo meal colors */
+.r-desayuno { background:linear-gradient(135deg,#f57c00,#ffb74d); }
+.r-colacion { background:linear-gradient(135deg,#388e3c,#66bb6a); }
+.r-almuerzo { background:linear-gradient(135deg,#0288d1,#4fc3f7); }
+.r-merienda { background:linear-gradient(135deg,#7b4f00,#bf7f30); }
+.r-cena     { background:linear-gradient(135deg,#1a3a5c,#2e6e9e); }
+
+.meal-body { padding:1rem 1.2rem; }
+.meal-row { display:flex; gap:0.6rem; align-items:flex-start; padding:0.5rem 0; border-bottom:1px solid #f5f5f5; font-size:0.86rem; line-height:1.5; }
+.meal-row:last-child { border-bottom:none; }
+.meal-row .dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; margin-top:5px; }
+.nancy-dot { background:#ff99bb; }
+.nancy-dot.alt { background:#ffcc00; }
+.rodrigo-dot { background:#4fc3f7; }
+.rodrigo-dot.alt { background:#ffb74d; }
+.meal-row strong { }
+.nancy-strong { color:#ff6b9d; }
+.rodrigo-strong { color:#0288d1; }
+
+/* TIPS */
+.tip-card { background:white; border-radius:14px; padding:1rem; margin-bottom:0.75rem; display:flex; gap:0.8rem; align-items:center; border:1.5px solid #eee; box-shadow:0 4px 15px rgba(0,0,0,0.05); }
+.tip-icon { font-size:1.6rem; flex-shrink:0; }
+.tip-text { font-size:0.86rem; line-height:1.5; color:#444; }
+
+/* SEARCH RESULTS */
+.sr-box { display:none; background:white; border-radius:14px; margin-top:0.5rem; box-shadow:0 8px 30px rgba(0,0,0,0.15); max-height:250px; overflow-y:auto; }
+.sr-item { padding:0.75rem 1rem; border-bottom:1px solid #f0f0f0; font-size:0.85rem; cursor:pointer; }
+.sr-item:last-child { border-bottom:none; }
+.sr-item strong { display:block; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.5px; }
+.sr-item.nancy-sr strong { color:#ff6b9d; }
+.sr-item.rodrigo-sr strong { color:#0288d1; }
+.sr-item:hover { background:#fafafa; }
+
+/* MODAL */
+.modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.45); z-index:500; align-items:flex-end; justify-content:center; }
+.modal-overlay.open { display:flex; }
+.modal { background:white; border-radius:24px 24px 0 0; width:100%; max-width:600px; max-height:80vh; overflow-y:auto; padding:1.5rem 1.2rem 2rem; animation:slideUp 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+@keyframes slideUp { from{transform:translateY(100%)} to{transform:translateY(0)} }
+.modal-handle { width:40px; height:4px; background:#e0e0e0; border-radius:4px; margin:0 auto 1.2rem; }
+.modal h2 { font-size:1.3rem; font-weight:900; margin-bottom:1rem; }
+.modal .portion-box { border-radius:12px; padding:0.7rem 1rem; margin-bottom:1rem; font-size:0.85rem; font-weight:700; }
+.modal .food-item { display:flex; align-items:flex-start; gap:0.5rem; padding:0.5rem 0; border-bottom:1px solid #f5f5f5; font-size:0.88rem; }
+.modal .food-item:last-child { border-bottom:none; }
+.modal .food-item .bul { font-size:1.1rem; flex-shrink:0; margin-top:1px; }
+.modal-close { display:block; width:100%; margin-top:1.2rem; padding:0.85rem; color:white; border:none; border-radius:30px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; }
+.nancy-modal h2 { color:#ff6b9d; }
+.nancy-modal .portion-box { background:#ffe4ee; color:#ff6b9d; }
+.nancy-modal .bul { color:#ff99bb; }
+.nancy-modal .modal-close { background:linear-gradient(135deg,#ff6b9d,#ff99bb); }
+.rodrigo-modal h2 { color:#0288d1; }
+.rodrigo-modal .portion-box { background:#e0f4ff; color:#0288d1; }
+.rodrigo-modal .bul { color:#4fc3f7; }
+.rodrigo-modal .modal-close { background:linear-gradient(135deg,#0288d1,#4fc3f7); }
+
+/* BOTTOM NAV */
+.bottom-nav { position:fixed; bottom:0; left:0; right:0; background:white; border-top:1.5px solid #eee; display:flex; z-index:200; padding-bottom:env(safe-area-inset-bottom); }
+.bottom-btn { flex:1; display:flex; flex-direction:column; align-items:center; padding:0.7rem 0.5rem; border:none; background:none; font-family:'Nunito',sans-serif; font-size:0.65rem; font-weight:700; color:#bbb; cursor:pointer; gap:0.2rem; transition:color 0.2s; }
+.bottom-btn .be { font-size:1.3rem; }
+.nancy-bnav .bottom-btn.active { color:#ff6b9d; }
+.rodrigo-bnav .bottom-btn.active { color:#0288d1; }
+
+/* SECTION HEADER */
+.sec-hd { display:flex; align-items:center; gap:0.6rem; margin-bottom:1rem; margin-top:0.5rem; }
+.sec-hd h2 { font-size:1rem; font-weight:900; }
+.nancy-sec h2 { color:#ff6b9d; }
+.rodrigo-sec h2 { color:#0288d1; }
+.sec-hd .line { flex:1; height:1.5px; background:#eee; }
+.hint { font-size:0.8rem; color:#aaa; margin-bottom:1rem; }
+
+/* CONSULTORIO */
+.consult-box { border-radius:16px; padding:1rem 1.2rem; color:white; margin-top:1rem; text-align:center; }
+.nancy-consult { background:linear-gradient(135deg,#ff6b9d,#ff99bb); }
+.rodrigo-consult { background:linear-gradient(135deg,#0288d1,#4fc3f7); }
 </style>
 </head>
 <body>
 
-<!-- APP HEADER -->
-<div class="app-header">
-  <h1>🥗 Plan de Rodrigo</h1>
-  <p>Lic. Silvina Marone · 18/02/2026 · 97,8 kg</p>
-  <div class="search-bar">
-    <span class="search-icon">🔍</span>
-    <input type="text" id="search-input" placeholder="Buscar alimento..." autocomplete="off">
-    <div id="search-results"></div>
+<!-- ══════════════════════════════════════
+     HOME
+══════════════════════════════════════ -->
+<div id="home">
+  <div class="home-title">🥗 Plan Nutricional</div>
+  <div class="home-sub">Lic. Silvina Marone · 18/02/2026</div>
+
+  <div class="home-cards">
+    <div class="card-nancy" onclick="goTo('nancy')">
+      <span class="card-emoji">🎀</span>
+      <h2>Nancy</h2>
+      <p>Tu plan personalizado</p>
+      <span class="card-tag">57,3 kg · Sarah Kay ✨</span>
+    </div>
+
+    <div class="card-rodrigo" onclick="goTo('rodrigo')">
+      <span class="card-emoji">🤖</span>
+      <h2>RODRIGO</h2>
+      <p>Tu plan personalizado</p>
+      <span class="card-tag">97,8 kg · Robot Mode 🚀</span>
+    </div>
+  </div>
+
+  <div class="home-footer">Tocá tu nombre para acceder a tu plan</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     APP NANCY
+══════════════════════════════════════ -->
+<div id="app-nancy" class="app-screen">
+  <div class="nancy-header">
+    <button class="back-btn" onclick="goHome()">←</button>
+    <h1>🎀 Nancy</h1>
+    <p>Lic. Silvina Marone · 18/02/2026 · 57,3 kg</p>
+    <div class="nancy-search">
+      <span class="si">🔍</span>
+      <input type="text" id="n-search" placeholder="Buscar alimento..." autocomplete="off">
+      <div id="n-sr" class="sr-box"></div>
+    </div>
+  </div>
+
+  <div class="nancy-tabs">
+    <button class="ntab active" onclick="nTab('alimentos')">🧺 Alimentos</button>
+    <button class="ntab" onclick="nTab('comidas')">🍽️ Comidas</button>
+    <button class="ntab" onclick="nTab('consejos')">💡 Consejos</button>
+  </div>
+
+  <div class="tab-content active" id="n-tab-alimentos">
+    <div class="sec-hd nancy-sec"><h2>Categorías de alimentos</h2><div class="line"></div></div>
+    <p class="hint">Tocá cada categoría para ver la lista completa.</p>
+    <div class="cat-grid" id="n-cat-grid"></div>
+  </div>
+  <div class="tab-content" id="n-tab-comidas">
+    <div class="sec-hd nancy-sec"><h2>Plan diario</h2><div class="line"></div></div>
+    <div id="n-meals"></div>
+  </div>
+  <div class="tab-content" id="n-tab-consejos">
+    <div class="sec-hd nancy-sec"><h2>Recomendaciones</h2><div class="line"></div></div>
+    <div id="n-tips"></div>
+    <div class="consult-box nancy-consult">
+      <div style="font-size:1.5rem">📞</div>
+      <div style="font-weight:900;margin-top:0.3rem">Consultorio</div>
+      <div style="font-size:1.1rem;margin-top:0.2rem">39831731</div>
+    </div>
+  </div>
+
+  <div class="bottom-nav nancy-bnav">
+    <button class="bottom-btn active" id="n-bn-alimentos" onclick="nTab('alimentos')"><span class="be">🧺</span>Alimentos</button>
+    <button class="bottom-btn" id="n-bn-comidas" onclick="nTab('comidas')"><span class="be">🍽️</span>Comidas</button>
+    <button class="bottom-btn" id="n-bn-consejos" onclick="nTab('consejos')"><span class="be">💡</span>Consejos</button>
   </div>
 </div>
 
-<!-- TAB NAV -->
-<div class="nav-tabs" id="nav-tabs">
-  <button class="tab-btn active" onclick="showTab('alimentos')"><span class="tab-emoji">🧺</span>Alimentos</button>
-  <button class="tab-btn" onclick="showTab('comidas')"><span class="tab-emoji">🍽️</span>Comidas</button>
-  <button class="tab-btn" onclick="showTab('consejos')"><span class="tab-emoji">💡</span>Consejos</button>
-</div>
-
-<!-- TAB: ALIMENTOS -->
-<div class="tab-content active" id="tab-alimentos">
-  <div class="section-header"><h2>Categorías de alimentos</h2><div class="line"></div></div>
-  <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1rem;">Tocá cada categoría para ver la lista completa.</p>
-  <div class="cat-grid" id="cat-grid"></div>
-</div>
-
-<!-- TAB: COMIDAS -->
-<div class="tab-content" id="tab-comidas">
-  <div class="section-header"><h2>Plan diario</h2><div class="line"></div></div>
-  <div id="meals-container"></div>
-</div>
-
-<!-- TAB: CONSEJOS -->
-<div class="tab-content" id="tab-consejos">
-  <div class="section-header"><h2>Recomendaciones</h2><div class="line"></div></div>
-  <div id="tips-container"></div>
-  <div style="background:var(--green);border-radius:var(--radius);padding:1rem 1.2rem;color:white;margin-top:1rem;text-align:center;">
-    <div style="font-size:1.5rem">📞</div>
-    <div style="font-weight:900;margin-top:0.3rem">Consultorio</div>
-    <div style="font-size:1.1rem;margin-top:0.2rem">39831731</div>
+<!-- ══════════════════════════════════════
+     APP RODRIGO
+══════════════════════════════════════ -->
+<div id="app-rodrigo" class="app-screen">
+  <div class="rodrigo-header">
+    <button class="back-btn" onclick="goHome()">←</button>
+    <h1>🤖 RODRIGO</h1>
+    <p>Lic. Silvina Marone · 18/02/2026 · 97,8 kg</p>
+    <div class="rodrigo-search">
+      <span class="si">🔍</span>
+      <input type="text" id="r-search" placeholder="Buscar alimento..." autocomplete="off">
+      <div id="r-sr" class="sr-box"></div>
+    </div>
   </div>
-</div>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
-  <div class="modal" id="modal">
-    <div class="modal-handle"></div>
-    <h2 id="modal-title"></h2>
-    <div id="modal-body"></div>
-    <button class="modal-close" onclick="closeModal()">Cerrar</button>
+  <div class="rodrigo-tabs">
+    <button class="rtab active" onclick="rTab('alimentos')">🧺 Alimentos</button>
+    <button class="rtab" onclick="rTab('comidas')">🍽️ Comidas</button>
+    <button class="rtab" onclick="rTab('consejos')">💡 Consejos</button>
   </div>
-</div>
 
-<!-- BOTTOM NAV (mobile) -->
-<div class="bottom-nav">
-  <button class="bottom-btn active" id="bn-alimentos" onclick="showTab('alimentos')">
-    <span class="btn-emoji">🧺</span>Alimentos
-  </button>
-  <button class="bottom-btn" id="bn-comidas" onclick="showTab('comidas')">
-    <span class="btn-emoji">🍽️</span>Comidas
-  </button>
-  <button class="bottom-btn" id="bn-consejos" onclick="showTab('consejos')">
-    <span class="btn-emoji">💡</span>Consejos
-  </button>
-</div>
-
-<script>
-// ─── DATA ────────────────────────────────────────────────────────────────────
-const categories = [
-  {
-    id: 'lacteos', emoji: '🥛', name: 'Lácteos', tag: 'Descremados',
-    preview: 'Leche, yogur, queso untable',
-    portion: null,
-    items: [
-      { label: 'Leche', detail: 'Descremada común, especial (con fibra) o vegetal' },
-      { label: 'Yogur', detail: 'Descremado con proteínas' },
-      { label: 'Queso untable', detail: 'Descremado — 2 cdas en desayuno/merienda' },
-    ]
-  },
-  {
-    id: 'carnes', emoji: '🥩', name: 'Carnes', tag: 'Porción controlada', tagType: 'amber',
-    preview: 'Vacuno, pollo, pescado, cerdo',
-    portion: '1 porción = elegí una opción:',
-    items: [
-      { label: '1 bife chico', detail: 'Nalga, peceto, cuadrada, lomo, cuadril' },
-      { label: '2 albóndigas', detail: '' },
-      { label: '1 hamburguesa', detail: '' },
-      { label: '1 milanesa mediana', detail: 'Nalga, peceto, cuadrada, lomo, cuadril' },
-      { label: '1 pechuga de pollo', detail: 'Sin piel' },
-      { label: '1 muslo de pollo', detail: 'Sin piel' },
-      { label: '1 filet mediano', detail: 'Merluza, brótola, pejerrey, atún, abadejo' },
-      { label: '1 bife chico de cerdo', detail: 'O 1 costillita' },
-    ]
-  },
-  {
-    id: 'huevos', emoji: '🥚', name: 'Huevos', tag: 'Máx 1/día',
-    preview: 'Hasta 1 por día',
-    portion: null,
-    items: [
-      { label: '1 huevo por día', detail: 'En reemplazo del queso untable en desayuno' },
-    ]
-  },
-  {
-    id: 'veg-libres', emoji: '🥦', name: 'Vegetales Libres', tag: 'Sin límite',
-    preview: 'Lechuga, tomate, zapallito…',
-    portion: null,
-    items: [
-      { label: 'Ají', detail: '' }, { label: 'Apio', detail: '' },
-      { label: 'Achicoria', detail: '' }, { label: 'Berenjena', detail: '' },
-      { label: 'Brotes de soja', detail: '' }, { label: 'Champiñón', detail: '' },
-      { label: 'Endivia', detail: '' }, { label: 'Espárragos', detail: '' },
-      { label: 'Hinojo', detail: '' }, { label: 'Hongos', detail: '' },
-      { label: 'Lechuga', detail: '' }, { label: 'Rúcula', detail: '' },
-      { label: 'Berro', detail: '' }, { label: 'Akusay', detail: '' },
-      { label: 'Pepino', detail: '' }, { label: 'Rabanito', detail: '' },
-      { label: 'Repollo', detail: '' }, { label: 'Tomate', detail: '' },
-      { label: 'Zapallito', detail: '' }, { label: 'Alcaucil', detail: '' },
-      { label: 'Cebolla', detail: '' }, { label: 'Puerro', detail: '' },
-    ]
-  },
-  {
-    id: 'veg-grupo1', emoji: '🥕', name: 'Vegetales Grupo 1', tag: 'Porción medida',
-    preview: 'Zanahoria, zapallo, remolacha…',
-    portion: '1 porción = ½ taza cocida · 1 taza cruda',
-    items: [
-      { label: 'Arvejas', detail: 'Frescas o envasadas' },
-      { label: 'Chaucha', detail: '' },
-      { label: 'Palmito', detail: '' },
-      { label: 'Remolacha', detail: '' },
-      { label: 'Zanahoria', detail: '' },
-      { label: 'Zapallo', detail: '' },
-      { label: 'Calabaza', detail: '' },
-    ]
-  },
-  {
-    id: 'frutas', emoji: '🍎', name: 'Frutas', tag: '1 por comida',
-    preview: 'Manzana, naranja, banana…',
-    portion: '1 porción = elegí una opción:',
-    items: [
-      { label: '1 manzana', detail: '' }, { label: '1 naranja', detail: '' },
-      { label: '1 durazno', detail: '' }, { label: '1 pelón', detail: '' },
-      { label: '2 kiwis', detail: '' }, { label: '2 mandarinas', detail: '' },
-      { label: '1 taza de frutillas', detail: '' },
-      { label: '½ taza de cerezas', detail: '' },
-      { label: '10 uvas', detail: '' },
-      { label: '1 banana chica', detail: '' },
-      { label: '4 ciruelas chicas', detail: '' },
-      { label: '4 damascos', detail: '' },
-      { label: '1 rodaja de sandía', detail: '' },
-      { label: '1 rodaja de melón', detail: '' },
-      { label: '1 rodaja de ananá', detail: '' },
-      { label: '1 higo', detail: '' },
-      { label: '1 pera', detail: '' },
-    ]
-  },
-  {
-    id: 'pan', emoji: '🍞', name: 'Pan & Tostadas', tag: 'Variados',
-    preview: 'Integral, centeno, salvado…',
-    portion: null,
-    items: [
-      { label: 'Pan blanco francés o mignon', detail: '' },
-      { label: 'Pan lactal blanco', detail: '' },
-      { label: 'Pan de salvado', detail: '' },
-      { label: 'Pan integral', detail: 'Artesanal o envasado' },
-      { label: 'Pan de centeno', detail: '' },
-      { label: 'Pan de masa madre', detail: '' },
-      { label: 'Tostadas de salvado con semillas', detail: '' },
-      { label: 'Galletas de arroz', detail: '' },
-    ]
-  },
-  {
-    id: 'cereales', emoji: '🍚', name: 'Cereales', tag: 'Porción medida', tagType: 'amber',
-    preview: 'Arroz, avena, quinoa, fideos…',
-    portion: '1 porción = elegí una opción:',
-    items: [
-      { label: '1 taza cocida de arroz', detail: '' },
-      { label: '1 taza cocida de polenta', detail: '' },
-      { label: '1 taza cocida de sémola', detail: '' },
-      { label: '1 taza cocida de avena', detail: '' },
-      { label: '1 taza cocida de cebada perlada', detail: '' },
-      { label: '1 taza cocida de quinoa', detail: '' },
-      { label: '1 taza cocida de trigo burgol', detail: '' },
-      { label: '1 plato postre de fideos', detail: '' },
-      { label: '1 plato postre de ñoquis', detail: '' },
-      { label: '1 plato postre de pasta rellena', detail: '' },
-      { label: '1 porción masa de tarta/empanada/pizza', detail: '' },
-      { label: '1 unidad chica de papa', detail: '' },
-      { label: '1 unidad chica de batata', detail: '' },
-      { label: '1 unidad chica de choclo', detail: '' },
-    ]
-  },
-  {
-    id: 'legumbres', emoji: '🫘', name: 'Legumbres', tag: '1 taza cocida',
-    preview: 'Lentejas, garbanzos, porotos…',
-    portion: '1 porción = 1 taza cocida',
-    items: [
-      { label: 'Lentejas', detail: '' },
-      { label: 'Porotos', detail: '' },
-      { label: 'Garbanzos', detail: '' },
-      { label: 'Arvejas secas', detail: '' },
-      { label: 'Habas', detail: '' },
-    ]
-  },
-  {
-    id: 'aceites', emoji: '🫒', name: 'Aceites', tag: '2 cdas por comida', tagType: 'amber',
-    preview: 'Oliva, canola, girasol…',
-    portion: '2 cucharadas soperas por comida principal',
-    items: [
-      { label: 'Aceite de oliva', detail: '' },
-      { label: 'Aceite de canola', detail: '' },
-      { label: 'Aceite de maíz', detail: '' },
-      { label: 'Aceite de uva', detail: '' },
-      { label: 'Aceite de girasol', detail: '' },
-      { label: 'Mezcla de aceites', detail: '' },
-      { label: '⚠️ Palta', detail: 'Si usás palta, reducí un poco el aceite' },
-    ]
-  },
-  {
-    id: 'infusiones', emoji: '☕', name: 'Infusiones', tag: 'Libres',
-    preview: 'Té, mate, café, tisanas…',
-    portion: null,
-    items: [
-      { label: 'Té', detail: '' },
-      { label: 'Mate cocido', detail: '' },
-      { label: 'Café', detail: '' },
-      { label: 'Café de malta o descafeinado', detail: '' },
-      { label: 'Manzanilla', detail: 'Tisana' },
-      { label: 'Tilo', detail: 'Tisana' },
-      { label: 'Boldo', detail: 'Tisana' },
-      { label: 'Mate cebado (bombilla)', detail: '' },
-    ]
-  },
-  {
-    id: 'bebidas', emoji: '💧', name: 'Bebidas', tag: 'Libres',
-    preview: 'Agua, jugos diet, kéfir…',
-    portion: null,
-    items: [
-      { label: 'Agua', detail: '' },
-      { label: 'Agua saborizada', detail: '' },
-      { label: 'Soda', detail: '' },
-      { label: 'Jugos dietéticos', detail: '' },
-      { label: 'Gaseosas dietéticas', detail: '' },
-      { label: 'Amargos serranos sin azúcar', detail: '' },
-      { label: 'Kéfir', detail: '' },
-    ]
-  },
-  {
-    id: 'condimentos', emoji: '🧂', name: 'Condimentos', tag: 'Libres',
-    preview: 'Especias, hierbas, vinagre…',
-    portion: '⚠️ Sal con moderación',
-    items: [
-      { label: 'Ají molido', detail: '' }, { label: 'Ajo', detail: '' },
-      { label: 'Albahaca', detail: '' }, { label: 'Anís', detail: '' },
-      { label: 'Azafrán', detail: '' }, { label: 'Canela', detail: '' },
-      { label: 'Comino', detail: '' }, { label: 'Jugo de limón', detail: '' },
-      { label: 'Laurel', detail: '' }, { label: 'Menta', detail: '' },
-      { label: 'Nuez moscada', detail: '' }, { label: 'Pimentón', detail: '' },
-      { label: 'Orégano', detail: '' }, { label: 'Perejil', detail: '' },
-      { label: 'Pimienta', detail: '' }, { label: 'Vinagre', detail: '' },
-      { label: 'Vainilla', detail: '' }, { label: 'Sal', detail: 'Con moderación' },
-    ]
-  },
-  {
-    id: 'dulces', emoji: '🍬', name: 'Dulces & Edulcorante', tag: 'Permitidos',
-    preview: 'Edulcorante, dulce diet',
-    portion: null,
-    items: [
-      { label: 'Edulcorante', detail: 'Sí ✓ — en infusiones' },
-      { label: 'Dulce diet', detail: 'Sí ✓ — 1 cda en desayuno/merienda' },
-    ]
-  },
-];
-
-const meals = [
-  {
-    id: 'desayuno', emoji: '🌅', name: 'Desayuno', cls: 'desayuno',
-    sub: 'Primera comida del día — ¡no saltear!',
-    rows: [
-      { amber: true, label: 'Infusión', detail: 'Con edulcorante o sola a voluntad' },
-      { amber: true, label: 'Leche', detail: 'Medio vaso' },
-      { amber: true, label: 'Pan', detail: '2 rebanadas integrales · 6 tostaditas integrales · 5 tostadas de mesa · 5 galletas de arroz · 1 taza cereales integrales · ½ taza avena · granola' },
-      { amber: true, label: 'Semillas', detail: '¡Agregar siempre!' },
-      { amber: true, label: 'Queso', detail: '2 cdas · O bien: 1 huevo' },
-      { amber: true, label: 'Dulce diet', detail: '1 cda' },
-    ]
-  },
-  {
-    id: 'colacion', emoji: '🥤', name: 'Colación', cls: 'colacion',
-    sub: 'Media mañana y media tarde',
-    rows: [
-      { label: 'Media mañana', detail: '1 yogur con semillas' },
-      { label: 'Media tarde', detail: '1 porción de fruta' },
-      { label: '💡 Tip', detail: 'Se pueden intercambiar entre sí' },
-    ]
-  },
-  {
-    id: 'almuerzo', emoji: '☀️', name: 'Almuerzo', cls: 'almuerzo',
-    sub: 'Comida principal del día',
-    rows: [
-      { label: 'Carnes', detail: '2 porciones' },
-      { label: 'Cereales / Legumbres', detail: 'Según porción indicada' },
-      { label: 'Vegetales libres', detail: 'Sin límite — más vegetales Grupo 1: libres' },
-      { label: 'Pan', detail: 'Según tolerancia' },
-      { label: 'Fruta', detail: '1 porción' },
-      { label: 'Aceite', detail: '2 cucharadas soperas' },
-    ]
-  },
-  {
-    id: 'merienda', emoji: '🌤️', name: 'Merienda', cls: 'merienda',
-    sub: 'Igual al desayuno',
-    rows: [
-      { amber: true, label: 'Igual al desayuno', detail: 'Mismas opciones y cantidades' },
-      { amber: true, label: 'Sin huevo', detail: 'En la merienda no se incluye el huevo' },
-    ]
-  },
-  {
-    id: 'cena', emoji: '🌙', name: 'Cena', cls: 'cena',
-    sub: 'Comida nocturna',
-    rows: [
-      { label: 'Carne', detail: '1 porción (las carnes se pueden distribuir entre almuerzo y cena)' },
-      { label: 'Cereales / Legumbres', detail: '2 porciones' },
-      { label: 'Vegetales libres', detail: 'Sin límite — más vegetales Grupo 1: libres' },
-      { label: 'Fruta', detail: '1 porción' },
-      { label: 'Aceite', detail: '2 cucharadas soperas' },
-    ]
-  },
-];
-
-const tips = [
-  { icon: '🍽️', text: 'Realizá mínimo 4 comidas al día: desayuno, almuerzo, merienda y cena.' },
-  { icon: '🥗', text: 'Aumentá el consumo de frutas y vegetales crudos para más vitaminas, minerales y fibra.' },
-  { icon: '🌄', text: 'No te saltees el desayuno: es la primera y más importante comida del día.' },
-  { icon: '💧', text: 'Bebé suficiente cantidad de líquidos durante el día.' },
-  { icon: '🚶', text: 'Realizá actividad física programada. Comenzá caminando 3 veces por semana.' },
-];
-
-// ─── RENDER CATEGORIES ───────────────────────────────────────────────────────
-function renderCategories() {
-  const grid = document.getElementById('cat-grid');
-  grid.innerHTML = categories.map(cat => `
-    <div class="cat-card" onclick="openModal('${cat.id}')">
-      <span class="cat-emoji">${cat.emoji}</span>
-      <h3>${cat.name}</h3>
-      <p class="cat-preview">${cat.preview}</p>
-      <span class="cat-tag ${cat.tagType || ''}">${cat.tag}</span>
-    </div>
-  `).join('');
-}
-
-// ─── RENDER MEALS ─────────────────────────────────────────────────────────────
-function renderMeals() {
-  const container = document.getElementById('meals-container');
-  container.innerHTML = meals.map(meal => `
-    <div class="meal-card">
-      <div class="meal-header ${meal.cls}">
-        <span class="meal-emoji">${meal.emoji}</span>
-        <div>
-          <h3>${meal.name}</h3>
-          <small>${meal.sub}</small>
-        </div>
-      </div>
-      <div class="meal-body">
-        ${meal.rows.map(row => `
-          <div class="meal-row">
-            <div class="dot ${row.amber ? 'amber' : ''}"></div>
-            <div><strong>${row.label}:</strong> ${row.detail}</div>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `).join('');
-}
-
-// ─── RENDER TIPS ─────────────────────────────────────────────────────────────
-function renderTips() {
-  const container = document.getElementById('tips-container');
-  container.innerHTML = tips.map(t => `
-    <div class="tip-card">
-      <span class="tip-icon">${t.icon}</span>
-      <p class="tip-text">${t.text}</p>
-    </div>
-  `).join('');
-}
-
-// ─── MODAL ───────────────────────────────────────────────────────────────────
-function openModal(id) {
-  const cat = categories.find(c => c.id === id);
-  if (!cat) return;
-  document.getElementById('modal-title').textContent = cat.emoji + ' ' + cat.name;
-  let html = '';
-  if (cat.portion) {
-    html += `<div class="portion-box">📏 ${cat.portion}</div>`;
-  }
-  html += cat.items.map(item => `
-    <div class="food-item">
-      <span class="bullet">•</span>
-      <div><strong>${item.label}</strong>${item.detail ? ' — ' + item.detail : ''}</div>
-    </div>
-  `).join('');
-  document.getElementById('modal-body').innerHTML = html;
-  document.getElementById('modal-overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal(e) {
-  if (e && e.target !== document.getElementById('modal-overlay') && e.type !== 'click') return;
-  if (e && e.currentTarget === document.getElementById('modal-overlay') && e.target !== e.currentTarget) return;
-  document.getElementById('modal-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.getElementById('modal-overlay').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
-
-// ─── TABS ─────────────────────────────────────────────────────────────────────
-function showTab(name) {
-  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.bottom-btn').forEach(el => el.classList.remove('active'));
-  document.getElementById('tab-' + name).classList.add('active');
-  document.querySelector(`.tab-btn[onclick="showTab('${name}')"]`).classList.add('active');
-  document.getElementById('bn-' + name).classList.add('active');
-}
-
-// ─── SEARCH ───────────────────────────────────────────────────────────────────
-const allFoods = [];
-categories.forEach(cat => {
-  cat.items.forEach(item => {
-    allFoods.push({ catName: cat.name, catId: cat.id, label: item.label, detail: item.detail });
-  });
-});
-
-document.getElementById('search-input').addEventListener('input', function() {
-  const q = this.value.toLowerCase().trim();
-  const box = document.getElementById('search-results');
-  if (!q) { box.style.display = 'none'; return; }
-  const results = allFoods.filter(f =>
-    f.label.toLowerCase().includes(q) || f.catName.toLowerCase().includes(q)
-  ).slice(0, 8);
-  if (!results.length) { box.style.display = 'none'; return; }
-  box.innerHTML = results.map(r => `
-    <div class="search-result-item" onclick="openModal('${r.catId}');document.getElementById('search-input').value='';document.getElementById('search-results').style.display='none';">
-      <strong>${r.catName}</strong>
-      ${r.label}${r.detail ? ' — ' + r.detail : ''}
-    </div>
-  `).join('');
-  box.style.display = 'block';
-});
-
-// ─── INIT ─────────────────────────────────────────────────────────────────────
-renderCategories();
-renderMeals();
-renderTips();
-</script>
-</body>
-</html>
+  <div class="tab-content active" id="r-tab-alimentos">
+    <div class="sec-hd rodrigo-sec"><h2>Categorías de alimentos</h2><div class="line"></div></div>
+    <p class="hint">Tocá cada categoría para ver la lista completa.</p>
+    <div class="cat-grid" id="r-cat-grid"></div>
+  </div>
+  <div class="tab-content" id="r-tab-comidas">
+    <div class="sec-hd rodrigo-sec"><h2>Plan diario</h2><div class="line"></div></div>
+    <div id="r-meals"></div>
+  </div>
+  <div class="tab-content" id="r-tab-consejos">
+    <div class="sec-hd rodrigo-sec"><h2>Recomendaciones</h2><div class="line"></div></div>
+    <div id="r-tips"></div>
+    <div class="consult-box rodrigo-consult">
+      <div style="font-size:1.5rem">📞</div>
+      <div style="font-weight:900;margin-top:0.3rem">Consultorio</div>
+   
